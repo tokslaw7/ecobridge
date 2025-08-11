@@ -4,12 +4,12 @@ import axios from "axios"
 axios.interceptors.request.use(
     config => {
         config.headers = {
-            // Accept: "application/json",
+            Accept: "application/json",
             "Access-Control-Allow-Origin": "*",
             // "Access-Control-Expose-Headers": "Access-Control-Allow-Origin",
             // "Access-Control-Allow-Headers": "Origin, X-API-KEY, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Allow-Headers, Authorization, observe, enctype, Content-Length, X-Csrf-Token",
             // "Content-Type": "application/json;charset=UTF-8",
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Authorization': (localStorage && localStorage.getItem('access_token')) ? `Bearer ${localStorage.getItem('access_token')}` : '',
           };
     // config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     // config.baseURL = process.env.REACT_APP_MAIN_API
@@ -47,7 +47,7 @@ export const loginUser = (reqData) => {
     let postData = {
         ...reqData
     }
-    return postAuxEnd('/panel/auth/login', postData, false)
+    return postAuxEnd('/Login', postData, false)
 }
 
 // FUNCTION TO REGISTER USER
@@ -74,12 +74,19 @@ export const completeRegistration = (reqData) => {
     return postAuxEnd('/panel/auth/register/complete', postData, false)
 }
 
+export const userToken = (reqData) => {
+    let postData = {
+        ...reqData
+    }
+    return postAuxEnd('/Authorize', postData, false)
+}
+
 // FUNCTION TO SUBSCRIBE
 export const subscribe = (reqData) => {
     let postData = {
         ...reqData
     }
-    return postAuxEnd('/panel/myproduct/subscription', postData, false)
+    return postAuxEnd('/panel/music/subscription', postData, false)
 }
 
 
@@ -118,8 +125,8 @@ export const productProvision = (reqData) => {
 }
 
 // FUNCTION TO GET DASHBOARD PRODUCT DATA SECTION
-export const productData = () => {
-    return getAuxEnd(`/panel/account/products`)
+export const musicData = () => {
+    return getAuxEnd(`/panel/account/music`)
 }
 
 // FUNCTION TO GET DASHBOARD PRODUCT DATA SECTION
@@ -132,8 +139,8 @@ export const productsURL = () => {
     return getAuxEnd(`/panel/account/products/url`)
 }
 
-export const MyProductData = (productID) => {
-    const reqData = { product_id : productID}
+export const MusicData = (musicID) => {
+    const reqData = { music_id : musicID}
     //console.log(reqData)
-    return getAuxEnd(`/panel/myproduct/dash`,reqData)
+    return getAuxEnd(`/panel/music/dash`,reqData)
 }

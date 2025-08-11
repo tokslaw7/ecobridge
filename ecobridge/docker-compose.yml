@@ -1,7 +1,6 @@
 version: '3'
 services:
-  merms-panel:
-    # image: registry.chiefsoft.net/wrenchboard-users-wrench:latest
+  ecobridge-activity:
     build:
       context: .
       dockerfile: docker/Dockerfile
@@ -9,7 +8,7 @@ services:
         - NODE_ENV=development
     restart: unless-stopped
     ports:
-      - 8090:3000
+      - 8099:3000
     # stdin_open: true
     working_dir: /usr/src/app
     volumes:

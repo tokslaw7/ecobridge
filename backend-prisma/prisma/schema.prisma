@@ -1,6 +1,7 @@
 // Same as before since Prisma schema is language-agnostic
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {

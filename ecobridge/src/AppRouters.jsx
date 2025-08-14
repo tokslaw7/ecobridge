@@ -29,16 +29,23 @@ function AppRouters() {
         </Route>
 
         {/* protected routes */}
-        <Route element={<SocketIOContextProvider />}>
-          <Route element={<UserExist />}> 
-            <Route path={siteLinks.dash} element={<HomePage />} />
-            <Route path={siteLinks.music} element={<MusicPage />} />
-            <Route path={siteLinks.activity} element={<ActivityPage />} />
-            <Route path={siteLinks.contact} element={<ContactPage />} />
-            <Route path={siteLinks.storytelling} element={<StoryTellingPage />} />
+        {/*<Route element={<SocketIOContextProvider />}>*/}
+        {/* */}
+        {/*</Route>*/}
+
+          <Route element={<UserExist />}>
+
           </Route>
+
+          <Route path={siteLinks.dash} element={<HomePage />} />
+          <Route path={siteLinks.music} element={<MusicPage />} />
+          <Route path={siteLinks.activity} element={<ActivityPage />} />
+          <Route path={siteLinks.contact} element={<ContactPage />} />
+          <Route path={siteLinks.storytelling} element={<StoryTellingPage />} />
+
         </Route>
-        </Route>
+
+
       </Routes>
 
     </div>

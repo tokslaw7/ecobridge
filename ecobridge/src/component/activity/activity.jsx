@@ -3,15 +3,28 @@ import { useState } from 'react';
 import KidActivity from './KidActivity';
 import ParentActivity from './ParentActivity';
 
+import { useQuery } from "@tanstack/react-query";
+import{ ActivityApicall } from "../apicalls/ActivityApicall";
+
 
 
 export default function Activity() {
     const [activeTab, setActiveTab] = useState('kids');
     const [completed, setCompleted] = useState({});
 
+    const { isPending, error, data, isFetching } = useQuery({
+        queryKey: ["activity"],
+        queryFn: async ()=> {
+           const res = await fetch (
+               "http://localhost:5901/activity"
+           )
+            return await res.json()
+        },
+    })
     const handleComplete = (title) => {
         setCompleted({ ...completed, [title]: true });
     };
+
 
     return (
         <div className="min-h-screen bg-blue-50">

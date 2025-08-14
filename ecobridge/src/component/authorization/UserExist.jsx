@@ -42,10 +42,10 @@ export default function UserExist() {
 
     useEffect(()=>{
       const timer = setTimeout(()=>{
-        if(Date.now() - Number(lastActivityTime) >= Number(process.env.REACT_APP_TIMEOUT)){
+        if(Date.now() - Number(lastActivityTime) >= Number()){
           logoutUser()
         }
-      }, Number(process.env.REACT_APP_TIMEOUT))
+      }, Number()) //Number(process.env.REACT_APP_TIMEOUT))
 
       // Listen for activity events
       const events = ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'];

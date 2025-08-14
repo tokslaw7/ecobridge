@@ -6,7 +6,7 @@ const activityRouter = express.Router();
 
 
 
-activityRouter.get('/activity', async (req, res)=>{
+activityRouter.get('/', async (req, res)=>{
     try{
         const activity = await prisma.activity.findMany();
         return res.json(activity);
@@ -16,7 +16,7 @@ activityRouter.get('/activity', async (req, res)=>{
     }
 });
 
-activityRouter.get("activity/:id", async (req, res)=>{
+activityRouter.get("/:id", async (req, res)=>{
 
         const activityId = Number(req.params.activityId);
 
@@ -44,13 +44,15 @@ activityRouter.get("activity/:id", async (req, res)=>{
 });
 
 
-activityRouter.put ("activity/:id", async function(req, res){
-    res.status(200).json({
-        success: true,
-    });
-})
+//
+// activityRouter.put("/:id", async function(req, res){
+//     res.status(200).json({
+//         success: true,
+//     });
+// }
+// );
 
-activityRouter.delete('/activity', async function(req,res){
+activityRouter.delete('/:id', async function(req,res){
     res.send("Delete activity").end();
 })
 

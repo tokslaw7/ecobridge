@@ -18,7 +18,7 @@ export default function SocketIOContextProvider({children}) {
 
     // const dispatch = useDispatch()
 
-    const socket = io.connect(process.env.REACT_APP_SOCKET_URL); 
+    // const socket = io.connect(process.env.REACT_APP_SOCKET_URL);
 
     // // Messages States
     // const [message, setMessage] = useState("");

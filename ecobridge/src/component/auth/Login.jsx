@@ -147,10 +147,10 @@ export default function Login() {
                                             </div>
 
                                             <div className="login-links">
-                                                <a href={process.env.REACT_APP_HOME_LINK}>Home</a>
-                                                <a href={process.env.REACT_APP_ABOUT_LINK}>About</a>
-                                                <a href={process.env.REACT_APP_CONTACTS_LINK}>Contact</a>
-                                                <a href={process.env.REACT_APP_TERMS_LINK}>Terms</a>
+                                                {/*<a href={process.env.REACT_APP_HOME_LINK}>Home</a>*/}
+                                                {/*<a href={process.env.REACT_APP_ABOUT_LINK}>About</a>*/}
+                                                {/*<a href={process.env.REACT_APP_CONTACTS_LINK}>Contact</a>*/}
+                                                {/*<a href={process.env.REACT_APP_TERMS_LINK}>Terms</a>*/}
                                             </div>
 
                                         </div>

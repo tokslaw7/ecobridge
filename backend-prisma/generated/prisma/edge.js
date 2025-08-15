@@ -152,7 +152,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/taborg/TKH-PHASE/TKH-PHASE2/Ecobridge_Project/backend-prisma/generated/prisma",
+      "value": "C:\\tmp\\ecobridge\\backend-prisma\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -161,12 +161,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/taborg/TKH-PHASE/TKH-PHASE2/Ecobridge_Project/backend-prisma/prisma/schema.prisma",
+    "sourceFilePath": "C:\\tmp\\ecobridge\\backend-prisma\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

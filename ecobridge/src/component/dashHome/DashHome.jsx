@@ -1,22 +1,19 @@
 //import StoryTelling from '../storytelling/StoryTelling';
-import { useState } from "react";
+//import { useState } from "react";
 import Music from '../music/Music';
 import React from "react";
 import Layout from '../layout/Layout'
-// import MainLoaderBS from "../loaders/MainLoaderBS";
+//import MainLoaderBS from "../loaders/MainLoaderBS";
 import {Outlet} from "react-router-dom";
 
 
 export default function DashHome(){
 
-    const [isClicked, setIsClicked ] = useState(false);
-
-    function handleClick(){
-        setIsClicked (true);
-    }
-
-
-
+    // const [isClicked, setIsClicked ] = useState(false);
+    //
+    // function handleClick(){
+    //     setIsClicked (true);
+    // }
 
 
     return(
@@ -85,12 +82,6 @@ export default function DashHome(){
                     </div>
                 </div>
 
-
-                {/*<MainLoaderBS />*/}
-                {/*:*/}
-                {/*<Layout>*/}
-                {/*    <Outlet />*/}
-                {/*</Layout>*/}
       </>
 
         )

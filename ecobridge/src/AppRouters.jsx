@@ -7,6 +7,7 @@ import BearerToken from './component/authorization/BearerToken';
 import LoginPage from './views/LoginPage';
 import MusicPage from './views/MusicPage';
 import ActivityPage from './views/ActivityPage';
+import LandingPage from './views/LandingPage';
 
 // import SignupPage from './views/SignupPage';
 // import ForgetpwdPage from './views/ForgetpwdPage';
@@ -20,6 +21,8 @@ function AppRouters() {
   return (
     <div className="">
       <Routes>
+        {/* <Route path={siteLinks.landing} element={<LandingPage />} /> */}
+
         <Route element={<BearerToken />}>
         {/* auth routes wrapper */}
         <Route element={<AuthLayout />}>
@@ -38,6 +41,7 @@ function AppRouters() {
 
           </Route>
           {/*<Route path={siteLinks.home} element={<LandingPage />} />*/}
+         <Route path={siteLinks.landing} element={<LandingPage />} />
           <Route path={siteLinks.dash} element={<HomePage />} />
           <Route path={siteLinks.music} element={<MusicPage />} />
           <Route path={siteLinks.activity} element={<ActivityPage />} />

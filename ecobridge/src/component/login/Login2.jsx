@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
+// import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+// import { Label } from "@/components/ui/label";
+// import { Separator } from "@/components/ui/separator";
 import { Music, Paintbrush, Users, Accessibility, User } from "lucide-react";
-import AuthCard from "@/components/AuthCard";
-import FeatureCard from "@/components/FeatureCard";
-import creativeImage from "@/assets/creative-community.jpg";
+// import AuthCard from "@/components/AuthCard";
+// import FeatureCard from "@/components/FeatureCard";
+// import creativeImage from "@/assets/creative-community.jpg";
 
 const Login2 = () => {
   const [email, setEmail] = useState("");
@@ -69,16 +69,16 @@ const Login2 = () => {
             </p>
             <div className="border-2 border-dashed border-border rounded-lg p-6 lg:p-8 mb-6 lg:mb-8 bg-card/50">
               <img
-                src={creativeImage}
+                // src={creativeImage}
                 alt="Diverse community engaged in creative activities"
                 className="w-full h-48 lg:h-64 object-cover rounded-lg"
               />
             </div>
             <div className="hidden lg:block space-y-3">
-              <FeatureCard icon={Music} title="Interactive Music Studio" />
+              {/* <FeatureCard icon={Music} title="Interactive Music Studio" />
               <FeatureCard icon={Paintbrush} title="Creative Expression Tools" />
               <FeatureCard icon={Users} title="Supportive Community" />
-              <FeatureCard icon={Accessibility} title="Adaptive Accessibility" />
+              <FeatureCard icon={Accessibility} title="Adaptive Accessibility" /> */}
             </div>
           </div>
         </div>
@@ -86,7 +86,8 @@ const Login2 = () => {
         {/* Right Side */}
         <div className="flex items-center justify-center p-6 lg:p-12 lg:flex-1">
           <div className="w-full max-w-md">
-            <AuthCard>
+            {/* <AuthCard> */}
+            <div>
               <div className="text-center mb-8">
                 <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="w-6 h-6 text-muted-foreground" />
@@ -99,10 +100,10 @@ const Login2 = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-foreground">
+                  <label htmlFor="email" className="text-foreground">
                     Email
-                  </Label>
-                  <Input
+                  </label>
+                  <input
                     id="email"
                     type="email"
                     placeholder="your@email.com"
@@ -114,10 +115,10 @@ const Login2 = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="password" className="text-foreground">
+                  <label htmlFor="password" className="text-foreground">
                     Password
-                  </Label>
-                  <Input
+                  </label>
+                  <input
                     id="password"
                     type="password"
                     placeholder="••••••••"
@@ -132,18 +133,18 @@ const Login2 = () => {
                   <p className="text-red-500 text-sm text-center">{error}</p>
                 )}
 
-                <Button
+                <button
                   type="submit"
                   disabled={loading}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
                   {loading ? "Signing in..." : "Sign In"}
-                </Button>
+                </button>
               </form>
 
               <div className="my-6">
                 <div className="relative">
-                  <Separator />
+                  <separator />
                   <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-3 text-sm text-warm-gray">
                     or
                   </span>
@@ -158,7 +159,8 @@ const Login2 = () => {
                   Create New Account
                 </Link>
               </div>
-            </AuthCard>
+              </div>
+            {/* </AuthCard> */}
 
             <div className="text-center mt-8 text-sm text-warm-gray">
               <p>Empowering special needs communities through creativity</p>

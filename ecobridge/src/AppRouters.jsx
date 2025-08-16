@@ -6,6 +6,7 @@ import siteLinks from './links/siteLinks';
 import BearerToken from './component/authorization/BearerToken';
 // import LoginPage from './views/LoginPage';
 import LoginPage2 from './views/LoginPage2';
+import DashboardPage from './views/DashboardPage';
 import MusicPage from './views/MusicPage';
 import ActivityPage from './views/ActivityPage';
 
@@ -22,6 +23,8 @@ function AppRouters() {
     <div className="">
       <Routes>
         <Route path={siteLinks.home} element={<LoginPage2 />} />
+          <Route path={siteLinks.dashboard} element={<DashboardPage />} />
+
 
 
 

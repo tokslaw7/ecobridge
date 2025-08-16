@@ -3,6 +3,8 @@ const siteLinks = {
     home: '/',
     // login: '/login',
     dash: '/dash',
+    dashboard: '/dashboard',
+
     music: '/music',
     activity: '/activity',
     contact: '/contact',

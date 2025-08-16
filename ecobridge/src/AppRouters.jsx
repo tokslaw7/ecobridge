@@ -14,6 +14,7 @@ import HomePage from './views/HomePage';
 import ContactPage from './views/ContactPage'
 import SocketIOContextProvider from './component/context/SocketIOContext';
 import StoryTellingPage from "./views/StoryTellingPage";
+import Layout from "./component/layout/Layout.jsx";
 
 
 function AppRouters() {
@@ -35,16 +36,19 @@ function AppRouters() {
         {/*</Route>*/}
 
           <Route element={<UserExist />}>
-
           </Route>
           {/*<Route path={siteLinks.home} element={<LandingPage />} />*/}
+        </Route>
+
+
+        <Route element={<Layout />}>
           <Route path={siteLinks.dash} element={<HomePage />} />
           <Route path={siteLinks.music} element={<MusicPage />} />
           <Route path={siteLinks.activity} element={<ActivityPage />} />
           <Route path={siteLinks.contact} element={<ContactPage />} />
           <Route path={siteLinks.storytelling} element={<StoryTellingPage />} />
-
         </Route>
+
 
 
       </Routes>

@@ -96,7 +96,6 @@ export default function UserExist() {
     useEffect(()=>{
       if(localStorage.getItem('room')){
         joinRoom(localStorage.getItem('room'));
-        joinRoom("merms_global_events"); // global room for all
       }
     },[])
 

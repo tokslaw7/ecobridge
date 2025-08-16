@@ -1,7 +1,7 @@
 const siteLinks = {
     error: '*',
     home: '/',
-    // login: '/login',
+    // login22: '/login',
     dash: '/dash',
     music: '/music',
     activity: '/activity',

@@ -1,0 +1,242 @@
+/* ADL and Life Skills App Custom Styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main app container */
+.app-container {
+    min-height: 100vh;
+    background-color: #f0f8ff; /* Alice blue background */
+}
+
+/* Tab navigation */
+.tab-navigation {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-nav-container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.tab-nav {
+    display: flex;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 16px 24px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: none;
+}
+
+.tab-button.active {
+    background-color: #fff9f3;
+    color: white;
+    border-bottom: 2px solid #fff9f3;
+}
+
+.tab-button.inactive {
+    color: #fff9f3;
+}
+
+.tab-button.inactive:hover {
+    background-color: #eff6ff;
+}
+
+/* Content area */
+.content-container {
+    padding: 32px 0;
+}
+
+.screen-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Headers */
+.main-header {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 32px;
+    color: #fc6668;
+}
+
+/* Activity cards grid */
+.activities-grid {
+    display: grid;
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .activities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Kids activity cards */
+.kids-activity-card {
+    background-color: #fefce8; /* Yellow-50 */
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fde047; /* Yellow-300 */
+}
+
+.activity-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #374151;
+}
+
+.activity-text {
+    margin-bottom: 12px;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.activity-text:last-of-type {
+    margin-bottom: 16px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+/* Completion button and success message */
+.completion-button {
+    background-color: #22c55e;
+    color: white;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.completion-button:hover {
+    background-color: #16a34a;
+}
+
+.success-message {
+    color: #16a34a;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Parent tip cards */
+.parent-tip-card {
+    background-color: #dbeafe; /* Blue-100 */
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #93c5fd; /* Blue-300 */
+}
+
+/* General advice section */
+.general-advice {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e5e7eb;
+    margin-top: 32px;
+}
+
+.advice-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.advice-item {
+    margin-bottom: 8px;
+    color: #374151;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .screen-container {
+        padding: 0 16px;
+    }
+
+    .main-header {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .activities-grid {
+        gap: 16px;
+    }
+
+    .kids-activity-card,
+    .parent-tip-card,
+    .general-advice {
+        padding: 16px;
+    }
+
+    .tab-button {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+}
+
+/* Focus styles for accessibility */
+.tab-button:focus,
+.completion-button:focus {
+    outline: 2px solid #fff9f3;
+    outline-offset: 2px;
+}
+
+/* Smooth transitions */
+.tab-button,
+.completion-button {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Print styles */
+@media print {
+    .tab-navigation {
+        display: none;
+    }
+
+    .app-container {
+        background: white;
+    }
+
+    .kids-activity-card,
+    .parent-tip-card,
+    .general-advice {
+        border: 1px solid #ccc;
+        break-inside: avoid;
+        margin-bottom: 16px;
+    }
+}

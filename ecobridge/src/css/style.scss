@@ -1,0 +1,165 @@
+
+
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/helpers";
+@import "partials/layout";
+@import "partials/header";
+@import "partials/menu";
+@import "partials/navigation";
+@import "partials/typography";
+
+@import "dashboard/cardealer";
+@import "dashboard/dating";
+@import "dashboard/jobportal";
+@import "dashboard/stockmarket";
+@import "dashboard/analytics";
+@import "dashboard/crm";
+@import "dashboard/crypto";
+@import "dashboard/ecommerce";
+@import "dashboard/realestate";
+
+
+@import "elements/accordions";
+@import "elements/badges";
+@import "elements/cards";
+@import "elements/alerts";
+@import "elements/buttons";
+@import "elements/progressbar";
+@import "elements/nav";
+@import "elements/listgroup";
+@import "elements/pagination";
+@import "elements/switch";
+@import "elements/tabs";
+@import "elements/lightbox";
+@import "elements/nestable";
+@import "elements/modals";
+@import "elements/media";
+@import "elements/toast";
+@import "elements/sweetalert";
+@import "elements/grid";
+
+
+@import "calendar/calendar";
+
+@import "chat/chat";
+@import "mail/mail";
+
+
+@import "icons/icons";
+
+@import "forms/datepicker";
+@import "forms/controls";
+@import "forms/editors";
+@import "forms/fileupload";
+@import "forms/input-groups";
+@import "forms/listbox";
+@import "forms/selects";
+@import "forms/rangesliders";
+
+@import "tables/table-color";
+@import "tables/data-table";
+@import "tables/export-table";
+
+//@import "maps/gmap";
+//@import "maps/vmap";
+//@import "maps/mapael";
+
+@import "chart/flot";
+@import "chart/charts";
+
+@import "widget/list";
+@import "widget/social";
+@import "widget/chart";
+
+@import "pages/account";
+@import "pages/task";
+@import "pages/error";
+@import "pages/pricing";
+@import "pages/faq";
+@import "pages/gallery";
+@import "pages/clients";
+@import "pages/contact";
+@import "pages/employees";
+@import "pages/coming-soon";
+
+
+// THIS IMPORTS ARE FOR THE CALENDAR PACKAGE - PLEASE DO NOT REMOVE
+$today-highlight-bg: #fcf8e3;
+// $btn-color: #fff;
+$btn-bg: #8e54e9;
+$btn-border: #8e54e9;
+$event-padding: 10px;
+
+.extraProductCard{
+  background-color: aliceblue;
+  border-radius: 5px;
+  margin: 2px;
+}
+.subscribe-box{
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.panel_coming_soon_c3{
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+.panel_round_c1{
+  background-color: #e6f5f4;
+  border-radius: 10px;
+}
+
+.panel_round_c2{
+  background-color: #e3dfef;
+  border-radius: 10px;
+}
+
+.panel_round_c3{
+  background-color: #fcfaf1;
+  border-radius: 10px;
+}
+
+
+/* CALENDER STYLE HERE */
+.fc-next-button.fc-button, .fc-prev-button.fc-button,
+.fc-timeGridWeek-button.fc-button, .fc-timeGridDay-button.fc-button, .fc-dayGridMonth-button.fc-button {
+  background: #eceef3!important;
+  border: none;
+  color: #a6a9b7 !important;
+  text-transform: capitalize !important;
+  // box-shadow: none!important;
+  // text-shadow: none!important;
+  // border-radius: 3px!important;
+  // margin: 0 3px!important;
+  // padding: 6px 12px!important;
+  // height: auto!important;
+}
+
+.fc-today-button.fc-button,
+.fc-timeGridWeek-button.fc-button-active, .fc-timeGridDay-button.fc-button-active, .fc-dayGridMonth-button.fc-button-active{
+  color: #fff !important;
+  border: none;
+  background-color: #8E54E9 !important;
+  text-transform: capitalize !important;
+}
+
+.fc-h-event,
+.fc-event.fc-event-draggable.fc-event-start.fc-event-end.fc-daygrid-event,
+.fc-event.fc-event-draggable.fc-event-start.fc-event-end.fc-daygrid-event{
+  padding: 10px 2px !important;
+  background-color: #3788d8 !important;
+  color: white;
+}
+
+.fc-theme-standard .fc-popover{
+  overflow-y: auto !important;
+  // height: calc(100% - 50px);
+}
+
+.fc .fc-more-popover .fc-popover-body {
+  overflow-y: auto;
+  height: 100px !important;
+}
+
+/* END OF CALENDER STYLE */

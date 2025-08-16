@@ -1,10 +1,10 @@
 const siteLinks = {
     error: '*',
     home: '/',
-     landing: '/landing',
-
-    // login: '/login',
+    // login22: '/login',
     dash: '/dash',
+    dashboard: '/dashboard',
+
     music: '/music',
     activity: '/activity',
     contact: '/contact',

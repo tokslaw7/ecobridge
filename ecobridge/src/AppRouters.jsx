@@ -37,8 +37,9 @@ function AppRouters() {
           <Route element={<UserExist />}>
 
           </Route>
+            <Route path={siteLinks.about} element={<AboutPage/>} />
           {/*<Route path={siteLinks.home} element={<LandingPage />} />*/}
-          <Route path={siteLinks.about} element={<AboutPage/>} />
+        
           <Route path={siteLinks.dash} element={<HomePage />} />
           <Route path={siteLinks.music} element={<MusicPage />} />
           <Route path={siteLinks.activity} element={<ActivityPage />} />

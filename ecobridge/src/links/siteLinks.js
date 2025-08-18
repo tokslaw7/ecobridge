@@ -1,10 +1,9 @@
 const siteLinks = {
     error: '*',
     home: '/',
-    // login22: '/login',
+    login: '/login',
     dash: '/dash',
     dashboard: '/dashboard',
-
     music: '/music',
     activity: '/activity',
     contact: '/contact',
@@ -15,7 +14,7 @@ const siteLinks = {
     user: '/user',
     calendar: '/calendar',
     settings: '/settings',
-    login: '/auth/login',
+    //login: '/auth/login',
     signup: '/auth/signup',
     forgetpwd: '/auth/forgetpwd',
     csignup: '/csignup/:jwt'

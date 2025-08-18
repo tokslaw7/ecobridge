@@ -17,27 +17,35 @@ import ContactPage from './views/ContactPage'
 import SocketIOContextProvider from './component/context/SocketIOContext';
 import StoryTellingPage from "./views/StoryTellingPage";
 import Layout from "./component/layout/Layout.jsx";
+import LandingPage from "./views/LandingPage.jsx";
 
 
 function AppRouters() {
   return (
     <div className="">
       <Routes>
-        <Route path={siteLinks.home} element={<LoginPage2 />} />
-          <Route path={siteLinks.dashboard} element={<DashboardPage />} />
+        <Route path={siteLinks.home} element={<LandingPage />} />
+        <Route path={siteLinks.login} element={<LoginPage2 />} />
+        <Route path={siteLinks.dashboard} element={<DashboardPage />} />
 
 
-
-
+        {/*<Route path={siteLinks.home} element={<LoginPage2 />} />*/}
+        {/*  <Route path={siteLinks.dashboard} element={<DashboardPage />} />*/}
 
         <Route element={<BearerToken />}>
         {/* auth routes wrapper */}
         <Route element={<AuthLayout />}>
-          {/*<Route path={siteLinks.home} element={<LandingPage />} />*/}
           {/* <Route path={siteLinks.home} element={<LoginPage />} /> */}
           {/*<Route path={siteLinks.signup} element={<SignupPage />} />*/}
           {/*<Route path={siteLinks.forgetpwd} element={<ForgetpwdPage />} />*/}
         </Route>
+
+
+          <Route element={<AuthLayout />}>
+            {/* <Route path={siteLinks.login} element={<LoginPage2 />} /> */}
+            {/*<Route path={siteLinks.signup} element={<SignupPage />} />*/}
+            {/*<Route path={siteLinks.forgetpwd} element={<ForgetpwdPage />} />*/}
+          </Route>
 
         {/* protected routes */}
         {/*<Route element={<SocketIOContextProvider />}>*/}
@@ -46,9 +54,10 @@ function AppRouters() {
 
           <Route element={<UserExist />}>
           </Route>
-          {/*<Route path={siteLinks.home} element={<LandingPage />} />*/}
+
         </Route>
 
+        {/*<Route path={siteLinks.landing} element={<LandingPage />} />*/}
 
         <Route element={<Layout />}>
           <Route path={siteLinks.dash} element={<HomePage />} />

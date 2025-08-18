@@ -9,7 +9,7 @@ import LoginPage2 from './views/LoginPage2';
 import DashboardPage from './views/DashboardPage';
 import MusicPage from './views/MusicPage';
 import ActivityPage from './views/ActivityPage';
-
+import AboutPage from './views/AboutPage';
 // import SignupPage from './views/SignupPage';
 // import ForgetpwdPage from './views/ForgetpwdPage';
 import HomePage from './views/HomePage';
@@ -54,6 +54,11 @@ function AppRouters() {
 
           <Route element={<UserExist />}>
           </Route>
+
+            <Route path={siteLinks.about} element={<AboutPage/>} />
+          {/*<Route path={siteLinks.home} element={<LandingPage />} />*/}
+        
+
 
         </Route>
 

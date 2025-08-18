@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Container for entire About page */
+.about-container {
+  @apply max-w-6xl mx-auto px-6 py-12 space-y-16;
+}
+
+/* Generic section styling */
+.about-section {
+  @apply text-center space-y-6;
+}
+
+.about-section h2 {
+  @apply text-3xl font-bold text-gray-900;
+}
+
+.about-section p {
+  @apply text-lg text-gray-600 leading-relaxed;
+}
+
+/* Product conceptualization feature cards (Music / Art / Storytelling) */
+.feature-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-8;
+}
+
+.feature-card {
+  @apply text-center space-y-2;
+}
+
+.feature-icon {
+  @apply w-12 h-12 border-2 border-gray-300 rounded-full flex items-center justify-center bg-blue-50 mx-auto text-2xl;
+}
+
+.feature-title {
+  @apply font-semibold text-sm;
+}
+
+.feature-desc {
+  @apply text-xs text-gray-600;
+}
+
+/* Team Section */
+.team-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.team-card {
+  @apply bg-white rounded-xl shadow-md p-6 text-center transition hover:shadow-xl;
+}
+
+.team-card h3 {
+  @apply text-xl font-semibold text-gray-900 mb-2;
+}
+
+.team-card p {
+  @apply text-sm text-gray-600 mb-2;
+}
+
+/* Contact links (email, phone, LinkedIn, portfolio) */
+.team-links {
+  @apply flex justify-center gap-4 mt-3;
+}
+
+.team-links a {
+  @apply text-gray-500 hover:text-green-600 transition;
+}
+
+/* Optional: button for adding new card */
+.add-card-btn {
+  @apply mt-8 px-6 py-3 rounded-lg bg-green-600 text-white font-medium shadow hover:bg-green-700 transition;
+}

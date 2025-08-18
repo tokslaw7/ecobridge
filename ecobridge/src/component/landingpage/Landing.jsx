@@ -7,14 +7,14 @@
 // import tailwindcss from "@tailwindcss/vite";
 
 
-export default function landingPage(){
+export default function Landing(){
     return(
       <>
       <div>
-        <Headers>
+        <div>
           <h1>Art. Music. Self.</h1>
           <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Headers>
+          </div>
           <section>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <button> Join </button>

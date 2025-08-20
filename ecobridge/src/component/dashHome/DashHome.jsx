@@ -1,6 +1,3 @@
-//import StoryTelling from '../storytelling/StoryTelling';
-//import { useState } from "react";
-import Music from '../music/Music';
 import React from "react";
 import Layout from '../layout/Layout'
 //import MainLoaderBS from "../loaders/MainLoaderBS";
@@ -77,9 +74,7 @@ export default function DashHome(){
                         </div>
                     </div>
 
-                    <div className="col-xxl-6 m-b-30">
-                        <Music />
-                    </div>
+
                 </div>
 
       </>

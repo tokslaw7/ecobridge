@@ -31,20 +31,26 @@ activityRouter.get("/:id", async (req, res)=>{
             });
 
             res.status(200).json({
-                success: true,
+                "success": true,
                 activity: activityId,
             });
         }catch (e) {
 
             res.status(500).json({
-                success: false,
+                "success": false,
                 message: "Something went wrong, please try again later",
             });
         }
 });
 
 
-//
+
+activityRouter.post("/", (req, res) => {
+    //This should produce undefined since not using the express.json middleware
+    console.log("Body of Request is", req.body);
+//Some code here...
+})
+
 // activityRouter.put("/:id", async function(req, res){
 //     res.status(200).json({
 //         success: true,

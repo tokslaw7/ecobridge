@@ -16,6 +16,7 @@ export default function Activity() {
         queryKey: ["activity"],
         queryFn: async ()=> {
            const res = await fetch (
+               
                "http://localhost:5901/activity"
            )
             return await res.json()
@@ -44,12 +45,8 @@ export default function Activity() {
                         </button>
                         <button
                             onClick={() => setActiveTab('parents')}
-                            className={`flex-1 py-4 px-6 text-center font-semibold text-lg transition-colors duration-200 ${
-                                activeTab === 'parents'
-                                    ? 'bg-blue-500 text-white border-b-2 border-blue-500'
-                                    : 'text-blue-500 hover:bg-blue-50'
-                            }`}
-                        >
+                            className={`flex-1 py-4 px-6 text-center font-semibold text-lg transition-colors duration-200 
+                            ${activeTab === 'parents' ? 'bg-blue-500 text-white border-b-2 border-blue-500' : 'text-blue-500 hover:bg-blue-50'}`}>
                             For Parents
                         </button>
                     </nav>
@@ -58,11 +55,7 @@ export default function Activity() {
 
             {/* Tab Content */}
             <div className="py-8">
-                {activeTab === 'kids' ? (
-                    <KidActivity completed={completed} onComplete={handleComplete} />
-                ) : (
-                    <ParentActivity />
-                )}
+                {activeTab === 'kids' ? ( <KidActivity completed={completed} onComplete={handleComplete} /> ) : ( <ParentActivity />)}
             </div>
         </div>
     );

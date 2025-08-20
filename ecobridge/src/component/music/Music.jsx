@@ -1,8 +1,8 @@
 import React from "react";
 // import {useLocation} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
-import queryKeys from "../../services/queryKeys";
-import {MusicData, musicData} from "../../services/services";
+// import queryKeys from "../../services/queryKeys";
+// import {MusicData, musicData} from "../../services/services";
 
 export default function Music (){
 
@@ -15,11 +15,12 @@ export default function Music (){
     //     queryFn: () => MusicData(lastPart)
     // })
     
-    //Recieving Data from  backend
+    //Receiving Data from  backend
     const { isPending, error, data, isFetching } = useQuery({
         queryKey: ["music"],
         queryFn: async ()=> {
-            const res = await fetch(
+            const res = await fetch (
+
                 "http://localhost:5901/music"
             )
             return await res.json()

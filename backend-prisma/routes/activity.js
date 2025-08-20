@@ -45,12 +45,28 @@ activityRouter.get("/:id", async (req, res)=>{
 
 
 
-activityRouter.post("/", (req, res) => {
-    //This should produce undefined since not using the express.json middleware
-    console.log("Body of Request is", req.body);
-//Some code here...
-})
+activityRouter.post("/", async function (req, res)
+{
+    try {
+        //Extract data from request body
+        const activityData = req.body;
 
+        const newActivity = await prisma.activity.create({
+            data: activityData,
+        });
+
+        res.status(201).json({
+            success: true,
+            music: newActivity,
+        });
+    } catch (error) {
+        console.error('Error creating activity: ', error);
+        res.status(500).json({
+            success: false,
+            message: "Failed to create activity",
+        });
+    }
+});
 // activityRouter.put("/:id", async function(req, res){
 //     res.status(200).json({
 //         success: true,

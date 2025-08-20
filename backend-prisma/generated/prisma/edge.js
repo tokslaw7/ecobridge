@@ -152,7 +152,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\tmp\\ecobridge\\backend-prisma\\generated\\prisma",
+      "value": "C:\\Users\\myawa\\ecobridge\\backend-prisma\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -166,7 +166,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\tmp\\ecobridge\\backend-prisma\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\myawa\\ecobridge\\backend-prisma\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

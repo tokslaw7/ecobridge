@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "lucide-react": "^0.539.0",
-    "react-ui-cards": "^3.1.0",
-    "ui-button": "^2.1.12"
-  }
-}

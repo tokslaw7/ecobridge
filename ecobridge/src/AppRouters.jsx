@@ -7,6 +7,7 @@ import BearerToken from './component/authorization/BearerToken';
 // import LoginPage from './views/LoginPage';
 import LoginPage2 from './views/LoginPage2';
 import DashboardPage from './views/DashboardPage';
+import SignupPage from './views/SignupPage';
 import MusicPage from './views/MusicPage';
 import ActivityPage from './views/ActivityPage';
 import AboutPage from './views/AboutPage';
@@ -35,6 +36,9 @@ function AppRouters() {
         <Route path={siteLinks.home} element={<LandingPage />} />
         <Route path={siteLinks.login} element={<LoginPage2 />} />
         <Route path={siteLinks.dashboard} element={<DashboardPage />} />
+        <Route path={siteLinks.signup} element={<SignupPage />} />
+
+        
 
 
         {/*<Route path={siteLinks.home} element={<LoginPage2 />} />*/}

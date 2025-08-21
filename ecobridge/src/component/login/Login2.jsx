@@ -1,14 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import { Separator } from "@/components/ui/separator";
-import { Music, Paintbrush, Users, Accessibility, User } from "lucide-react";
-// import AuthCard from "@/components/AuthCard";
-// import FeatureCard from "@/components/FeatureCard";
-// import creativeImage from "@/assets/creative-community.jpg";
+import { useNavigate, Link } from "react-router-dom";
+import { User } from "lucide-react";
 
 const Login2 = () => {
   const [email, setEmail] = useState("");
@@ -26,27 +18,29 @@ const Login2 = () => {
       setError("Please fill in all fields.");
       return;
     }
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      setError("Please enter a valid email.");
-      return;
-    }
 
     setLoading(true);
 
     try {
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (email === "test@example.com" && password === "password123") {
-            resolve();
-          } else {
-            reject(new Error("Invalid email or password"));
-          }
-        }, 1200);
+      const res = await fetch("http://localhost:5901/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
       });
 
-      localStorage.setItem("user", JSON.stringify({ email }));
+      const data = await res.json();
 
-      navigate("/dashboard");
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
+      // Save token + user info
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      navigate("/dashboard"); // redirect after login
     } catch (err) {
       setError(err.message);
     } finally {
@@ -55,127 +49,97 @@ const Login2 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="flex flex-col lg:flex-row min-h-screen max-w-7xl mx-auto">
+    <div className="container-fluid min-vh-100 d-flex align-items-center bg-light">
+      <div className="row w-100">
         {/* Left Side */}
-        <div className="flex flex-col justify-center p-6 lg:p-12 bg-warm-beige/30 lg:flex-1">
-          <div className="max-w-lg mx-auto lg:mx-0">
-            <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center lg:text-left">
-              EchoBridge
-            </h1>
-            <div className="w-16 h-1 bg-primary mb-6 mx-auto lg:mx-0"></div>
-            <p className="text-lg text-warm-gray mb-8 italic text-center lg:text-left">
-              "Every voice matters, every story counts"
-            </p>
-            <div className="border-2 border-dashed border-border rounded-lg p-6 lg:p-8 mb-6 lg:mb-8 bg-card/50">
-              <img
-                // src={creativeImage}
-                alt="Diverse community engaged in creative activities"
-                className="w-full h-48 lg:h-64 object-cover rounded-lg"
-              />
-            </div>
-            <div className="hidden lg:block space-y-3">
-              {/* <FeatureCard icon={Music} title="Interactive Music Studio" />
-              <FeatureCard icon={Paintbrush} title="Creative Expression Tools" />
-              <FeatureCard icon={Users} title="Supportive Community" />
-              <FeatureCard icon={Accessibility} title="Adaptive Accessibility" /> */}
-            </div>
+        <div className="col-lg-6 d-none d-lg-flex flex-column justify-content-center bg-white p-5 border-end">
+          <h1 className="display-5 fw-bold mb-3">EchoBridge</h1>
+          <div className="mb-4">
+            <hr className="w-25 border-2 border-primary opacity-100" />
+          </div>
+          <p className="lead fst-italic mb-4">
+            "Every voice matters, every story counts"
+          </p>
+          <div className="border border-2 border-dashed rounded p-4 bg-light">
+            <img
+              // src={creativeImage}
+              alt="Diverse community engaged in creative activities"
+              className="img-fluid rounded"
+            />
           </div>
         </div>
 
         {/* Right Side */}
-        <div className="flex items-center justify-center p-6 lg:p-12 lg:flex-1">
-          <div className="w-full max-w-md">
-            {/* <AuthCard> */}
-            <div>
-              <div className="text-center mb-8">
-                <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
-                  <User className="w-6 h-6 text-muted-foreground" />
-                </div>
-                <h2 className="text-2xl font-bold text-foreground mb-2">
-                  Welcome Back
-                </h2>
-                <p className="text-warm-gray">Continue your creative journey</p>
+        <div className="col-lg-6 d-flex align-items-center justify-content-center p-5">
+          <div className="w-100" style={{ maxWidth: "400px" }}>
+            <div className="text-center mb-4">
+              <div className="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style={{ width: "60px", height: "60px" }}>
+                <User size={28} className="text-secondary" />
+              </div>
+              <h2 className="fw-bold">Welcome Back</h2>
+              <p className="text-muted">Continue your creative journey</p>
+            </div>
+
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label fw-semibold">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  className="form-control"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-foreground">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="bg-input border-border"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="password" className="text-foreground">
-                    Password
-                  </label>
-                  <input
-                    id="password"
-                    type="password"
-                    placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="bg-input border-border"
-                    required
-                  />
-                </div>
-
-                {error && (
-                  <p className="text-red-500 text-sm text-center">{error}</p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  {loading ? "Signing in..." : "Sign In"}
-                </button>
-              </form>
-
-              <div className="my-6">
-                <div className="relative">
-                  <separator />
-                  <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-3 text-sm text-warm-gray">
-                    or
-                  </span>
-                </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label fw-semibold">Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  className="form-control"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </div>
 
-              <div className="border-2 border-dashed border-border rounded-lg p-4 text-center">
-                <Link
-                  to="/signup"
-                  className="text-primary hover:underline font-medium"
-                >
-                  Create New Account
-                </Link>
-              </div>
-              </div>
-            {/* </AuthCard> */}
+              {error && (
+                <div className="alert alert-danger text-center py-2">{error}</div>
+              )}
 
-            <div className="text-center mt-8 text-sm text-warm-gray">
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn btn-primary w-100"
+              >
+                {loading ? "Signing in..." : "Sign In"}
+              </button>
+            </form>
+
+            <div className="d-flex align-items-center my-4">
+              <hr className="flex-grow-1" />
+              <span className="mx-2 text-muted small">or</span>
+              <hr className="flex-grow-1" />
+            </div>
+
+            <div className="border border-2 border-dashed rounded p-3 text-center">
+              <Link to="/signup" className="fw-medium text-primary text-decoration-none">
+                Create New Account
+              </Link>
+            </div>
+
+            <div className="text-center mt-4 small text-muted">
               <p>Empowering special needs communities through creativity</p>
-              <div className="flex justify-center gap-4 mt-4">
-                <Link to="/help" className="hover:text-primary">
-                  Help
-                </Link>
-                <span>•</span>
-                <Link to="/privacy" className="hover:text-primary">
-                  Privacy
-                </Link>
-                <span>•</span>
-                <Link to="/terms" className="hover:text-primary">
-                  Terms
-                </Link>
+              <div>
+                <Link to="/help" className="me-2 text-decoration-none">Help</Link>
+                •
+                <Link to="/privacy" className="mx-2 text-decoration-none">Privacy</Link>
+                •
+                <Link to="/terms" className="ms-2 text-decoration-none">Terms</Link>
               </div>
             </div>
           </div>

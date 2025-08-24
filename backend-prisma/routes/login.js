@@ -29,7 +29,8 @@ loginRouter.post ("/login", async function(req, res){
     const newLoginUser = await prisma.user.create({
         data: {
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            username: req.body.username
         }
     })
     res.status(201).json({

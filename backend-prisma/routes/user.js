@@ -13,7 +13,7 @@ userRouter.get ("/user", async  function(req, res){
 
     })
     res.json({
-        success: true,
+        "success": true,
         user
     })
 
@@ -33,15 +33,14 @@ userRouter.post ("/user", async function(req, res){
         }
     })
     res.status(201).json({
-        success: true,
+        "success": true,
         user: newUser
     });
-
 })
 
 userRouter.put ("user/:id", async function(req, res){
     res.status(200).json({
-        success: true,
+        "success": true,
     });
 })
 

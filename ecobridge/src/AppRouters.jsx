@@ -20,11 +20,19 @@ import StoryTellingPage from "./views/StoryTellingPage";
 import Layout from "./component/layout/Layout.jsx";
 import LandingPage from "./views/LandingPage.jsx";
 
+import PublicLayout from "./component/layout/PublicLayout"; // import new public NAVBAR layout-NO AUTHORIZATION PAGES
+import Navbar from "./component/layout/Navbar"; // optional: direct import if needed
 
 function AppRouters() {
   return (
     <div className="">
       <Routes>
+        {/* Public Routes/Navbar */}
+      <Route element={<PublicLayout />}>
+        <Route path={siteLinks.home} element={<LandingPage />} />
+        <Route path={siteLinks.about} element={<AboutPage />} />
+        <Route path={siteLinks.contact} element={<ContactPage />} />
+      </Route>
         <Route path={siteLinks.home} element={<LandingPage />} />
         <Route path={siteLinks.login} element={<LoginPage2 />} />
         <Route path={siteLinks.dashboard} element={<DashboardPage />} />

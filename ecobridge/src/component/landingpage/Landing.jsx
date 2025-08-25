@@ -33,7 +33,7 @@ export default function Landing(){
     </div>
     <div class="col-md-6 text-end">
       <h1>Art. Music. Self.</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Connect with advocates, families & supporters</p>
       <section>
       <a href="/signup" class="btn btn-primary">Join</a>
       <a href="/activity" class="btn btn-outline-primary"> Explore</a>
@@ -46,17 +46,17 @@ export default function Landing(){
         <section class="col-md bg-danger text-primary-emphasis" >
           <p class="h5"> Music </p>
           <i class="bi bi-music-note-beamed fs-2"></i>
-        <p class="text-primary-emphasis">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="text-primary-emphasis">Interactive music creation tools with sensory-friendly interfaces</p>
           </section>
         <section class="col-md bg-info text-primary-emphasis">
         <p class="h5"> Art </p>
         <i class="bi bi-palette-fill fs-2"></i>
-      <p class="text-primary-emphasis">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p class="text-primary-emphasis">Drawing pads with music-reactive brushes.</p>
         </section>
        <section class="col-md bg-warning text-primary-emphasis">
         <p class="h5">Story </p>
         <i class="bi bi-book fs-2"></i>
-        <p class="text-primary-emphasis">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="text-primary-emphasis">Podcast platform & story sharing space</p>
         </section>
         
       </div>

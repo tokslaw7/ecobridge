@@ -19,7 +19,7 @@ const siteLinks = {
     calendar: '/calendar',
     settings: '/settings',
     //login: '/auth/login',
-    signup: '/auth/signup',
+    signup: '/signup',
     forgetpwd: '/auth/forgetpwd',
     csignup: '/csignup/:jwt'
 }

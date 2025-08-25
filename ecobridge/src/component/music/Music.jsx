@@ -1,6 +1,6 @@
 import React from "react";
 // import {useLocation} from "react-router-dom";
-// import {useQuery} from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 // import queryKeys from "../../services/queryKeys";
 // import {MusicData, musicData} from "../../services/services";
 
@@ -14,16 +14,47 @@ export default function Music (){
     //     queryKey: queryKeys.music,
     //     queryFn: () => MusicData(lastPart)
     // })
-        return (
-            <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-200 mt-8">
-                <h2 className="text-xl font-semibold mb-4 text-gray-800">Music </h2>
-                <ul className="space-y-2 text-gray-700">
-                    <li> Use visuals and timers to support understanding.</li>
-                    <li> Celebrate small wins with hugs, stickers, or kind words.</li>
-                    <li> Keep routines consistent and predictable.</li>
-                    <li> Involve children in daily decisions to boost confidence.</li>
-                </ul>
-            </div>
-            )
+    
+    //Receiving Data from  backend
+    const { isPending, error, data, isFetching } = useQuery({
+        queryKey: ["music"],
+        queryFn: async ()=> {
+            const res = await fetch (
 
-}
+                "http://localhost:5901/music"
+            )
+            return await res.json()
+        },
+    })
+
+    if (isPending){
+        return (
+            <div> Loading...</div>
+        );
+    }
+
+    if (error){
+        return (
+            <div>Error fetching data </div>
+        );
+    }
+        return (
+            <div>
+                {data.map(item => (
+                    <div key={item.id}>{item.artist}</div>
+                ))}
+            </div>
+            );
+
+};
+
+
+// <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-200 mt-8">
+//     <h2 className="text-xl font-semibold mb-4 text-gray-800">Music </h2>
+//     <ul className="space-y-2 text-gray-700">
+//         <li> Use visuals and timers to support understanding.</li>
+//         <li> Celebrate small wins with hugs, stickers, or kind words.</li>
+//         <li> Keep routines consistent and predictable.</li>
+//         <li> Involve children in daily decisions to boost confidence.</li>
+//     </ul>
+// </div>

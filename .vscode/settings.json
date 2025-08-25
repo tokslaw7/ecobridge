@@ -1,0 +1,11 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "user.sqlite",
+            "database": "${workspaceFolder:ecobridge}/backend-prisma/users.sqlite"
+        }
+    ]
+}

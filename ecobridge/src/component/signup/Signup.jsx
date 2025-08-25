@@ -1,187 +1,217 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { User, Mail, Lock } from "lucide-react";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card, Form, Button, Row, Col } from "react-bootstrap";
+import handsTogether from "../../assets/img/Hands-Together.jpg";
+
+const iconStyle = {
+  position: "absolute",
+  left: "1rem",
+  top: "50%",
+  transform: "translateY(-50%)",
+  color: "var(--bs-secondary-color, #6c757d)",
+  pointerEvents: "none",
+};
 
 export default function Signup() {
-  const [formData, setFormData] = useState({
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
     firstName: "",
     lastName: "",
     username: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
+  const onChange = (e) =>
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup attempt:", formData);
+    setError("");
+
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const res = await fetch("http://localhost:5901/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Signup failed");
+      navigate("/login");
+    } catch (err) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
-
-  //     try {
-  //     const res = await fetch("http://localhost:5901/signup/signup", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ email, password, username }),
-  //     });
-
-  //     const data = await res.json();
-
-  //     if (!res.ok) {
-  //       throw new Error(data.message || "Signup failed");
-  //     }
-
-  //     // Save token + user info
-  //     localStorage.setItem("token", data.token);
-  //     localStorage.setItem("user", JSON.stringify(data.user));
-
-  //     navigate("/dashboard"); // redirect after signup
-  //   } catch (err) {
-  //     setError(err.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   return (
-    <div className="container-fluid min-vh-100 d-flex flex-column">
-      <div className="row flex-grow-1">
-        {/* Left Side */}
-        <div className="col-lg-6 d-flex flex-column justify-content-center bg-light p-5">
-          <div className="mx-auto mx-lg-0" style={{ maxWidth: "500px" }}>
-            <h1 className="fw-bold mb-3">EcoBridge</h1>
-            <div className="bg-primary mb-3" style={{ height: "4px", width: "60px" }}></div>
-            <p className="fst-italic text-muted">
-              "Join our inclusive creative community"
-            </p>
-            <div className="border border-2 rounded p-3 mb-4 bg-white">
-              <img
-                src="https://via.placeholder.com/500x250"
-                alt="Diverse hands coming together"
-                className="img-fluid rounded"
-                style={{ height: "250px", objectFit: "cover", width: "100%" }}
-              />
-            </div>
+    <div className="container py-5">
+      <div className="row">
+       {/* Left Side */}
+        <div className="col-lg-6 d-none d-lg-flex flex-column justify-content-center bg-white p-5 border-end">
+          {/* Title aligned left above image */}
+          <div className="mb-4">
+            <h1 className="display-5 fw-bold text-warning mb-1">EcoBridge</h1>
+            <hr className="border-3 border-warning opacity-100 w-25 m-0" />
           </div>
+
+          <p className="lead fst-italic mb-4">
+            "Every voice matters, every story counts"
+          </p>
+
+          <div
+            className="border border-2 border-dashed rounded p-0 bg-light mb-4"
+            style={{ height: "260px", overflow: "hidden" }}
+          >
+            <img
+              src={handsTogether}
+              alt="Hands Together w/Community"
+              className="img-fluid w-100 h-100 object-fit-cover"
+            />
+          </div>
+
+          <ul className="list-unstyled text-muted">
+            <li>🎵 Express through Music</li>
+            <li>🎨 Create Visual Art</li>
+            <li>🤝 Connect with Others</li>
+            <li>🌍 Fully Accessible Platform</li>
+          </ul>
         </div>
 
-        {/* Right Side - Signup Form */}
-        <div className="col-lg-6 d-flex align-items-center justify-content-center p-5">
-          <div className="w-100" style={{ maxWidth: "450px" }}>
+        {/* Right Side - Form */}
+        <div className="col-lg-6">
+          <div style={{ maxWidth: "450px", margin: "0 auto" }}>
             <div className="text-center mb-4">
-              <div className="bg-primary bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style={{ width: "60px", height: "60px" }}>
-                <User size={28} className="text-primary" />
+              <div
+                className="bg-primary bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                style={{ width: "60px", height: "60px" }}
+              >
+                <i className="bi bi-person text-primary fs-4"></i>
               </div>
               <h2 className="fw-bold">Join EcoBridge</h2>
               <p className="text-muted">Start your creative journey today</p>
             </div>
 
-            <form onSubmit={handleSubmit}>
-              <div className="row mb-3">
-                <div className="col position-relative">
-                  <User size={18} className="position-absolute top-50 start-0 translate-middle-y ms-2 text-muted"/>
-                  <input
-                    type="text"
-                    name="firstName"
-                    className="form-control ps-5"
-                    placeholder="First Name"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                  />
+            {error && <div className="alert alert-danger text-center py-2">{error}</div>}
+
+            <form onSubmit={onSubmit}>
+              {/* First/Last side by side */}
+              <div className="row">
+                <div className="col-sm-6">
+                  <div className="position-relative mb-3">
+                    <i className="bi bi-person" style={iconStyle}></i>
+                    <input
+                      type="text"
+                      name="firstName"
+                      className="form-control ps-5"
+                      placeholder="First Name"
+                      value={form.firstName}
+                      onChange={onChange}
+                      required
+                    />
+                  </div>
                 </div>
-                <div className="col position-relative">
-                  <User size={18} className="position-absolute top-50 start-0 translate-middle-y ms-2 text-muted"/>
-                  <input
-                    type="text"
-                    name="lastName"
-                    className="form-control ps-5"
-                    placeholder="Last Name"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                  />
+                <div className="col-sm-6">
+                  <div className="position-relative mb-3">
+                    <i className="bi bi-person" style={iconStyle}></i>
+                    <input
+                      type="text"
+                      name="lastName"
+                      className="form-control ps-5"
+                      placeholder="Last Name"
+                      value={form.lastName}
+                      onChange={onChange}
+                      required
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="mb-3 position-relative">
-                <User size={18} className="position-absolute top-50 start-0 translate-middle-y ms-2 text-muted"/>
+              {/* Username */}
+              <div className="position-relative mb-3">
+                <i className="bi bi-person-badge" style={iconStyle}></i>
                 <input
                   type="text"
                   name="username"
                   className="form-control ps-5"
                   placeholder="Username"
-                  value={formData.username}
-                  onChange={handleChange}
+                  value={form.username}
+                  onChange={onChange}
                   required
                 />
               </div>
 
-              <div className="mb-3 position-relative">
-                <Mail size={18} className="position-absolute top-50 start-0 translate-middle-y ms-2 text-muted"/>
+              {/* Email */}
+              <div className="position-relative mb-3">
+                <i className="bi bi-envelope" style={iconStyle}></i>
                 <input
                   type="email"
                   name="email"
                   className="form-control ps-5"
                   placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  value={form.email}
+                  onChange={onChange}
                   required
                 />
               </div>
 
-              <div className="mb-3 position-relative">
-                <Lock size={18} className="position-absolute top-50 start-0 translate-middle-y ms-2 text-muted"/>
+              {/* Password */}
+              <div className="position-relative mb-3">
+                <i className="bi bi-lock" style={iconStyle}></i>
                 <input
                   type="password"
                   name="password"
                   className="form-control ps-5"
                   placeholder="Password"
-                  value={formData.password}
-                  onChange={handleChange}
+                  value={form.password}
+                  onChange={onChange}
                   required
                 />
               </div>
 
-              <div className="mb-3 position-relative">
-                <Lock size={18} className="position-absolute top-50 start-0 translate-middle-y ms-2 text-muted"/>
+              {/* Confirm Password */}
+              <div className="position-relative mb-4">
+                <i className="bi bi-lock-fill" style={iconStyle}></i>
                 <input
                   type="password"
                   name="confirmPassword"
                   className="form-control ps-5"
                   placeholder="Confirm Password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
+                  value={form.confirmPassword}
+                  onChange={onChange}
                   required
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary w-100">Create Account</button>
+              {/* Orange CTA (not green) */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn w-100 fw-semibold text-white"
+                style={{ backgroundColor: "#fd7e14", borderColor: "#fd7e14" }}
+              >
+                {loading ? "Creating Account..." : "Create Account"}
+              </button>
             </form>
 
-            <div className="text-center my-4 text-muted">or</div>
+            <div className="text-center my-3 text-muted">or</div>
 
-            <div className="border rounded p-3 text-center">
-              <Link to="/login" className="text-primary fw-medium">
+            <div className="border border-2 border-dashed rounded p-3 text-center mb-4 bg-white">
+              <Link to="/login" className="text-primary fw-medium text-decoration-none">
                 Sign In to Existing Account
               </Link>
-            </div>
-
-            <div className="text-center mt-4 text-muted small">
-              <p>Building bridges through creative expression</p>
-              <div>
-                <Link to="/help" className="text-decoration-none me-2">Help</Link>•
-                <Link to="/privacy" className="text-decoration-none mx-2">Privacy</Link>•
-                <Link to="/terms" className="text-decoration-none ms-2">Terms</Link>
-              </div>
             </div>
           </div>
         </div>

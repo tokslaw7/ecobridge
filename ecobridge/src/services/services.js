@@ -9,7 +9,7 @@ axios.interceptors.request.use(
             // "Access-Control-Expose-Headers": "Access-Control-Allow-Origin",
             // "Access-Control-Allow-Headers": "Origin, X-API-KEY, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Allow-Headers, Authorization, observe, enctype, Content-Length, X-Csrf-Token",
             // "Content-Type": "application/json;charset=UTF-8",
-            'Authorization': (localStorage && localStorage.getItem('access_token')) ? `Bearer ${localStorage.getItem('access_token')}` : '',
+            //'Authorization': (localStorage && localStorage.getItem('access_token')) ? `Bearer ${localStorage.getItem('access_token')}` : '',
           };
     // config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     // config.baseURL = process.env.REACT_APP_MAIN_API

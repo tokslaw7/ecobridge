@@ -1,55 +1,71 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { UserPlus } from "lucide-react";
+import { UserPlus, Mail, Lock, User } from "lucide-react";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    username: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
+
+    // simple validation
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.username ||
+      !formData.email ||
+      !formData.password ||
+      !formData.confirmPassword
+    ) {
+      setError("Please fill in all fields.");
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    setLoading(true);
     console.log("Signup attempt:", formData);
+    setLoading(false);
   };
 
   return (
-    <div className="container-fluid min-vh-100 d-flex flex-column">
+    <div className="container-fluid min-vh-100 d-flex flex-column bg-light">
       <div className="row flex-grow-1">
         {/* Left Side */}
-        <div className="col-lg-6 d-flex flex-column justify-content-center bg-light p-5">
-          <div className="mx-auto mx-lg-0" style={{ maxWidth: "500px" }}>
-            <h1 className="fw-bold mb-3">EcoBridge</h1>
-            <div className="bg-primary mb-3" style={{ height: "4px", width: "60px" }}></div>
-            <p className="fst-italic text-muted">
-              "Join our inclusive creative community"
-            </p>
-
-            <div className="border border-2 rounded p-3 mb-4 bg-white">
-              <img
-                src="https://via.placeholder.com/500x250"
-                alt="Diverse hands coming together"
-                className="img-fluid rounded"
-                style={{ height: "250px", objectFit: "cover", width: "100%" }}
-              />
-            </div>
-
-            <ul className="list-unstyled d-none d-lg-block">
-              <li className="mb-2">🎵 Express through Music</li>
-              <li className="mb-2">🎨 Create Visual Art</li>
-              <li className="mb-2">🤝 Connect with Others</li>
-              <li>♿ Fully Accessible Platform</li>
-            </ul>
+        <div className="col-lg-6 d-flex flex-column justify-content-center p-5 bg-white">
+          <h1 className="fw-bold mb-3">EcoBridge</h1>
+          <div className="bg-primary mb-3" style={{ height: "4px", width: "60px" }}></div>
+          <p className="fst-italic text-muted">
+            "Join our inclusive creative community"
+          </p>
+          <div className="border border-2 rounded p-3 mb-4">
+            <img
+              src="https://via.placeholder.com/500x250"
+              alt="Diverse hands coming together"
+              className="img-fluid rounded"
+              style={{ height: "250px", objectFit: "cover", width: "100%" }}
+            />
           </div>
         </div>
 
@@ -67,34 +83,69 @@ export default function Signup() {
               <p className="text-muted">Start your creative journey today</p>
             </div>
 
+            {error && (
+              <div className="alert alert-danger text-center py-2">{error}</div>
+            )}
+
             <form onSubmit={handleSubmit}>
               <div className="row mb-3">
                 <div className="col">
-                  <label htmlFor="firstName" className="form-label">
+                  <label htmlFor="firstName" className="form-label fw-semibold">
                     First Name
                   </label>
-                  <input
-                    id="firstName"
-                    name="firstName"
-                    type="text"
-                    className="form-control"
-                    placeholder="First"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                  />
+                  <div className="input-group">
+                    <span className="input-group-text bg-white">
+                      <User size={20} />
+                    </span>
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      className="form-control"
+                      placeholder="First"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                 </div>
                 <div className="col">
-                  <label htmlFor="lastName" className="form-label">
+                  <label htmlFor="lastName" className="form-label fw-semibold">
                     Last Name
                   </label>
+                  <div className="input-group">
+                    <span className="input-group-text bg-white">
+                      <User size={20} />
+                    </span>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      className="form-control"
+                      placeholder="Last"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="username" className="form-label fw-semibold">
+                  Username
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text bg-white">
+                    <User size={20} />
+                  </span>
                   <input
-                    id="lastName"
-                    name="lastName"
+                    id="username"
+                    name="username"
                     type="text"
                     className="form-control"
-                    placeholder="Last"
-                    value={formData.lastName}
+                    placeholder="Username"
+                    value={formData.username}
                     onChange={handleChange}
                     required
                   />
@@ -102,83 +153,82 @@ export default function Signup() {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="email" className="form-label">
+                <label htmlFor="email" className="form-label fw-semibold">
                   Email
                 </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  className="form-control"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="input-group">
+                  <span className="input-group-text bg-white">
+                    <Mail size={20} />
+                  </span>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    className="form-control"
+                    placeholder="you@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
 
               <div className="mb-3">
-                <label htmlFor="password" className="form-label">
+                <label htmlFor="password" className="form-label fw-semibold">
                   Password
                 </label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  className="form-control"
-                  placeholder="Create a strong password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="input-group">
+                  <span className="input-group-text bg-white">
+                    <Lock size={20} />
+                  </span>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    className="form-control"
+                    placeholder="Create a strong password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
 
               <div className="mb-3">
-                <label htmlFor="confirmPassword" className="form-label">
+                <label htmlFor="confirmPassword" className="form-label fw-semibold">
                   Confirm Password
                 </label>
-                <input
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
-                  className="form-control"
-                  placeholder="Confirm your password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="input-group">
+                  <span className="input-group-text bg-white">
+                    <Lock size={20} />
+                  </span>
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    className="form-control"
+                    placeholder="Confirm your password"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
 
-              <button type="submit" className="btn btn-primary w-100">
-                Create Account
+              <button
+                type="submit"
+                className="btn btn-primary w-100"
+                disabled={loading}
+              >
+                {loading ? "Creating..." : "Create Account"}
               </button>
             </form>
 
-            <div className="text-center my-4">
-              <span className="text-muted">or</span>
-            </div>
-
-            <div className="border rounded p-3 text-center">
+            <div className="text-center mt-4">
+              <span className="text-muted">Already have an account?</span>{" "}
               <Link to="/" className="text-primary fw-medium">
-                Sign In to Existing Account
+                Sign In
               </Link>
-            </div>
-
-            <div className="text-center mt-4 text-muted small">
-              <p>Building bridges through creative expression</p>
-              <div>
-                <Link to="/help" className="text-decoration-none me-2">
-                  Help
-                </Link>
-                •
-                <Link to="/privacy" className="text-decoration-none mx-2">
-                  Privacy
-                </Link>
-                •
-                <Link to="/terms" className="text-decoration-none ms-2">
-                  Terms
-                </Link>
-              </div>
             </div>
           </div>
         </div>

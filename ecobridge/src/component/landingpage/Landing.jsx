@@ -35,7 +35,7 @@ export default function Landing(){
       <h1>Art. Music. Self.</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <section>
-      <a href="/auth/signup" class="btn btn-primary">Join</a>
+      <a href="/signup" class="btn btn-primary">Join</a>
       <a href="/activity" class="btn btn-outline-primary"> Explore</a>
       </section>
     </div>

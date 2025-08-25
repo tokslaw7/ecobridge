@@ -1,0 +1,30 @@
+.icon-list {
+    .icon-wrap {
+        text-align: center;
+        padding: 40px 20px;
+        background:$white;
+        color:$muted;
+        i {
+            display: block;
+            margin-bottom:15px;
+            font-size:$font-xxl;
+            color:$primary;
+        }
+        &:hover {
+            background:$light-gray;
+            i {
+                color:$primary;
+            }
+        }
+    }
+}
+
+@import "cryptocurrency";
+@import "dashicons";
+@import "dripicons";
+@import "feather";
+@import "font-awesome";
+@import "ionicons";
+@import "linea-weather";
+@import "material-icons";
+@import "themifyicons";

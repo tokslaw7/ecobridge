@@ -1,0 +1,280 @@
+@font-face {
+    font-family: "linea-weather";
+    src: url('../fonts/linea-weather.eot');
+    src: url('../fonts/linea-weather.eot?#iefix') format('eot'),
+  
+      url('../fonts/linea-weather.woff') format('woff'),
+      url('../fonts/linea-weather.ttf') format('truetype'),
+      url('../fonts/linea-weather.svg#linea-weather') format('svg');
+  }
+  
+  .lwe {
+    font-family: "linea-weather";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    speak: none;
+    text-decoration: none;
+    text-transform: none;
+  }
+  
+  
+  .lwe-weather-aquarius:before {
+    content: "\e000";
+  }
+  .lwe-weather-aries:before {
+    content: "\e001";
+  }
+  .lwe-weather-cancer:before {
+    content: "\e002";
+  }
+  .lwe-weather-capricorn:before {
+    content: "\e003";
+  }
+  .lwe-weather-cloud:before {
+    content: "\e004";
+  }
+  .lwe-weather-cloud-drop:before {
+    content: "\e005";
+  }
+  .lwe-weather-cloud-lightning:before {
+    content: "\e006";
+  }
+  .lwe-weather-cloud-snowflake:before {
+    content: "\e007";
+  }
+  .lwe-weather-downpour-fullmoon:before {
+    content: "\e008";
+  }
+  .lwe-weather-downpour-halfmoon:before {
+    content: "\e009";
+  }
+  .lwe-weather-downpour-sun:before {
+    content: "\e00a";
+  }
+  .lwe-weather-drop:before {
+    content: "\e00b";
+  }
+  .lwe-weather-first-quarter:before {
+    content: "\e00c";
+  }
+  .lwe-weather-fog:before {
+    content: "\e00d";
+  }
+  .lwe-weather-fog-fullmoon:before {
+    content: "\e00e";
+  }
+  .lwe-weather-fog-halfmoon:before {
+    content: "\e00f";
+  }
+  .lwe-weather-fog-sun:before {
+    content: "\e010";
+  }
+  .lwe-weather-fullmoon:before {
+    content: "\e011";
+  }
+  .lwe-weather-gemini:before {
+    content: "\e012";
+  }
+  .lwe-weather-hail:before {
+    content: "\e013";
+  }
+  .lwe-weather-hail-fullmoon:before {
+    content: "\e014";
+  }
+  .lwe-weather-hail-halfmoon:before {
+    content: "\e015";
+  }
+  .lwe-weather-hail-sun:before {
+    content: "\e016";
+  }
+  .lwe-weather-last-quarter:before {
+    content: "\e017";
+  }
+  .lwe-weather-leo:before {
+    content: "\e018";
+  }
+  .lwe-weather-libra:before {
+    content: "\e019";
+  }
+  .lwe-weather-lightning:before {
+    content: "\e01a";
+  }
+  .lwe-weather-mistyrain:before {
+    content: "\e01b";
+  }
+  .lwe-weather-mistyrain-fullmoon:before {
+    content: "\e01c";
+  }
+  .lwe-weather-mistyrain-halfmoon:before {
+    content: "\e01d";
+  }
+  .lwe-weather-mistyrain-sun:before {
+    content: "\e01e";
+  }
+  .lwe-weather-moon:before {
+    content: "\e01f";
+  }
+  .lwe-weather-moondown-full:before {
+    content: "\e020";
+  }
+  .lwe-weather-moondown-half:before {
+    content: "\e021";
+  }
+  .lwe-weather-moonset-full:before {
+    content: "\e022";
+  }
+  .lwe-weather-moonset-half:before {
+    content: "\e023";
+  }
+  .lwe-weather-move2:before {
+    content: "\e024";
+  }
+  .lwe-weather-newmoon:before {
+    content: "\e025";
+  }
+  .lwe-weather-pisces:before {
+    content: "\e026";
+  }
+  .lwe-weather-rain:before {
+    content: "\e027";
+  }
+  .lwe-weather-rain-fullmoon:before {
+    content: "\e028";
+  }
+  .lwe-weather-rain-halfmoon:before {
+    content: "\e029";
+  }
+  .lwe-weather-rain-sun:before {
+    content: "\e02a";
+  }
+  .lwe-weather-sagittarius:before {
+    content: "\e02b";
+  }
+  .lwe-weather-scorpio:before {
+    content: "\e02c";
+  }
+  .lwe-weather-snow:before {
+    content: "\e02d";
+  }
+  .lwe-weather-snow-fullmoon:before {
+    content: "\e02e";
+  }
+  .lwe-weather-snow-halfmoon:before {
+    content: "\e02f";
+  }
+  .lwe-weather-snow-sun:before {
+    content: "\e030";
+  }
+  .lwe-weather-snowflake:before {
+    content: "\e031";
+  }
+  .lwe-weather-star:before {
+    content: "\e032";
+  }
+  .lwe-weather-storm-11:before {
+    content: "\e033";
+  }
+  .lwe-weather-storm-32:before {
+    content: "\e034";
+  }
+  .lwe-weather-storm-fullmoon:before {
+    content: "\e035";
+  }
+  .lwe-weather-storm-halfmoon:before {
+    content: "\e036";
+  }
+  .lwe-weather-storm-sun:before {
+    content: "\e037";
+  }
+  .lwe-weather-sun:before {
+    content: "\e038";
+  }
+  .lwe-weather-sundown:before {
+    content: "\e039";
+  }
+  .lwe-weather-sunset:before {
+    content: "\e03a";
+  }
+  .lwe-weather-taurus:before {
+    content: "\e03b";
+  }
+  .lwe-weather-tempest:before {
+    content: "\e03c";
+  }
+  .lwe-weather-tempest-fullmoon:before {
+    content: "\e03d";
+  }
+  .lwe-weather-tempest-halfmoon:before {
+    content: "\e03e";
+  }
+  .lwe-weather-tempest-sun:before {
+    content: "\e03f";
+  }
+  .lwe-weather-variable-fullmoon:before {
+    content: "\e040";
+  }
+  .lwe-weather-variable-halfmoon:before {
+    content: "\e041";
+  }
+  .lwe-weather-variable-sun:before {
+    content: "\e042";
+  }
+  .lwe-weather-virgo:before {
+    content: "\e043";
+  }
+  .lwe-weather-waning-cresent:before {
+    content: "\e044";
+  }
+  .lwe-weather-waning-gibbous:before {
+    content: "\e045";
+  }
+  .lwe-weather-waxing-cresent:before {
+    content: "\e046";
+  }
+  .lwe-weather-waxing-gibbous:before {
+    content: "\e047";
+  }
+  .lwe-weather-wind:before {
+    content: "\e048";
+  }
+  .lwe-weather-wind-e:before {
+    content: "\e049";
+  }
+  .lwe-weather-wind-fullmoon:before {
+    content: "\e04a";
+  }
+  .lwe-weather-wind-halfmoon:before {
+    content: "\e04b";
+  }
+  .lwe-weather-wind-n:before {
+    content: "\e04c";
+  }
+  .lwe-weather-wind-ne:before {
+    content: "\e04d";
+  }
+  .lwe-weather-wind-nw:before {
+    content: "\e04e";
+  }
+  .lwe-weather-wind-s:before {
+    content: "\e04f";
+  }
+  .lwe-weather-wind-se:before {
+    content: "\e050";
+  }
+  .lwe-weather-wind-sun:before {
+    content: "\e051";
+  }
+  .lwe-weather-wind-sw:before {
+    content: "\e052";
+  }
+  .lwe-weather-wind-w:before {
+    content: "\e053";
+  }
+  .lwe-weather-windgust:before {
+    content: "\e054";
+  }
+  
+  

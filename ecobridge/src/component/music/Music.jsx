@@ -14,7 +14,6 @@ export default function Music (){
     //     queryKey: queryKeys.music,
     //     queryFn: () => MusicData(lastPart)
     // })
-    
     //Recieving Data from  backend
     const { isPending, error, data, isFetching } = useQuery({
         queryKey: ["music"],

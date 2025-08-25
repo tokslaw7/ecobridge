@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Form, Button, Row, Col } from "react-bootstrap";
 import handsTogether from "../../assets/img/Hands-Together.jpg";
 
 const iconStyle = {

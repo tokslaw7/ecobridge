@@ -1,12 +1,8 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Frontend README (`ecobridge/`)
+The EcoBridge frontend is a React application built with Vite and styled using Bootstrap. It provides the user interface for EcoBridge’s mission. Users can also login to view their personalized dashboard.
+---
+#### 1. Navigate into the frontend folder (cd ecobridge)
+#### 2. Install dependencies (npm i)
+#### 3. Npm run dev
+# Backend README (`backend-prisma/README.md`)
+This is the Node.js + Express backend for the EcoBridge platform. It uses Prisma as the ORM and a SQLite database. The backend provides API endpoints for managing creative content, including music, user data, and authentication.

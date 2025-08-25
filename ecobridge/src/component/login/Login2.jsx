@@ -4,6 +4,7 @@ import { User } from "lucide-react";
 
 const Login2 = () => {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,12 +23,12 @@ const Login2 = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5901/login", {
+      const res = await fetch("http://localhost:5901/login/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, username }),
       });
 
       const data = await res.json();
@@ -53,7 +54,7 @@ const Login2 = () => {
       <div className="row w-100">
         {/* Left Side */}
         <div className="col-lg-6 d-none d-lg-flex flex-column justify-content-center bg-white p-5 border-end">
-          <h1 className="display-5 fw-bold mb-3">EchoBridge</h1>
+          <h1 className="display-5 fw-bold mb-3">EcoBridge</h1>
           <div className="mb-4">
             <hr className="w-25 border-2 border-primary opacity-100" />
           </div>
@@ -90,6 +91,18 @@ const Login2 = () => {
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="username" className="form-label fw-semibold">Username</label>
+                <input
+                  id="username"
+                  type="text"
+                  className="form-control"
+                  placeholder="yourusername"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                 />
               </div>

@@ -1,6 +1,6 @@
 # EcoBridge
 EcoBridge’s mission: empowering individuals with special needs through music, art, and storytelling tools, while also serving as an advocacy hub for families.
-### Deployment link:
+### Video Walkthrough: [https://drive.google.com/file/d/1KSR186VRWydKKAR5ECHWYqNf_-Afv0_t/view?usp=sharing](https://drive.google.com/file/d/1KSR186VRWydKKAR5ECHWYqNf_-Afv0_t/view?usp=sharing)
 ### Figma mockups: https://www.figma.com/design/QFbmcylRYATDhMYczaIaN0/EcoBridge-Team--Lo-Fi---Hi-Fi-Mockups-?node-id=4-10&t=asxRCuslUQ6Cw3MW-1
 ### Team Members: Athena Jacob, Dominique Bullard, Tokunbo Lawal, Mya Walker
 # Frontend README (`ecobridge/`)
